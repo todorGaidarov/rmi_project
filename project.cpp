@@ -6,7 +6,8 @@
 
 void readGraph(std::string file_name, std::vector<std::vector<int>>& graph);
 void printGraph(const std::vector<std::vector<int>>& graph);
-void singleDFS(std::vector<std::vector<int>>& graph, int startNode);
+void singleDFS(std::vector<std::vector<int>>& graph, int start_node);
+void traverse(std::vector<std::vector<int>>& graph, int start_node, std::vector<int>& path);
 
 int main() {
 	std::vector<std::vector<int>> graph;
@@ -45,4 +46,12 @@ void printGraph(const std::vector<std::vector<int>>& graph) {
 	}
 }
 
-
+void singleDFS(std::vector<std::vector<int>>& graph, int start_node) {
+	if(graph.empty()) {
+		return;
+	}
+	
+	int size_graph = graph.size();
+	std::vector<int> path(size_graph);
+	traverse(graph, start_node, path);
+}
